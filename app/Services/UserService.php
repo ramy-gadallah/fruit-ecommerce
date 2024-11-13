@@ -71,6 +71,7 @@ class UserService extends BaseService
 
     public function store($data)
     {
+        $data['password'] = Hash::make($data['password']);
         $data['slug']=$this->generateUserCode();
 
         // $data['image']=$this->handleFile($data['image'],'user');
@@ -81,15 +82,14 @@ class UserService extends BaseService
         return response()->json(['status' => 200]);
     }
 
-    public function edit($admin)
+    public function edit($user)
     {
-        $roles = Role::all();
-        return view($this->folder . '/parts/edit', compact('admin', 'roles'));
+        return view($this->folder . '/parts/edit',compact('user'));
     }
 
     public function update($id, $data)
     {
-        $admin = $this->getById($id);
+        $user = $this->getById($id);
 
         if ($data['password'] && $data['password'] != null) {
 
@@ -98,30 +98,23 @@ class UserService extends BaseService
             unset($data['password']);
         }
 
-        if ($this->updateData($id, $data)) {
-            $admin->syncRoles($data['role_id']);
-            return response()->json(['status' => 200]);
-        } else {
-            return response()->json(['status' => 405]);
+        if($user->image){
+            Storage::disk('public')->delete($user->image);
         }
+
+        $data['image']=$data['image']->store('user', 'public');
+        $this->updateData($id, $data);
+        return response()->json(['status' => 200]);
     }
 
-    protected function generateCode(): string
-    {
-        do {
-            $code = Str::random(11);
-        } while ($this->firstWhere(['code' => $code]));
-
-        return $code;
-    }
 
     protected function generateUserCode(): string
     {
         do {
-            $code = Str::random(11);
-        } while ($this->firstWhere(['slug' => $code]));
+            $slug = Str::random(11);
+        } while ($this->firstWhere(['slug' => $slug]));
 
-        return $code;
+        return $slug;
     }
 
     public function destroy($id)

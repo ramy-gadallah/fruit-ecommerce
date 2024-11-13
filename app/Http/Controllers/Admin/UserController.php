@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
+use App\Models\User;
 use App\Services\UserService as ObjService;
 use Illuminate\Http\Request;
 
@@ -38,15 +39,16 @@ class UserController extends Controller
     }
 
 
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        return $this->objService->edit($user);
     }
 
 
-    public function update(Request $request, $id)
+    public function update(UserRequest $request ,$id)
     {
-        //
+        $data=$request->validated();
+        return $this->objService->update($id,$data);
     }
 
 

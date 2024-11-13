@@ -1,58 +1,61 @@
 <div class="modal-body">
-    <form id="updateForm" method="POST" enctype="multipart/form-data" action="{{route('admins.update',$admin->id)}}" >
+    <form id="updateForm" method="POST" enctype="multipart/form-data" action="{{route('users.update',$user->id)}}" >
     @csrf
         @method('PUT')
-        <input type="hidden" value="{{$admin->id}}" name="id">
+        <input type="hidden" value="{{$user->id}}" name="id">
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
-                    <label for="name" class="form-control-label">{{  trns('name')}}</label>
-                    <input type="text" class="form-control" name="name" value="{{$admin->name}}" id="name">
+                    <label for="name" class="form-control-label">{{ trns('name') }}</label>
+                    <input type="text" class="form-control" name="name" id="name" value="{{$user->name}}">
                 </div>
             </div>
             <div class="col-6">
                 <div class="form-group">
-                    <label for="name" class="form-control-label">{{  trns('user_name')}}</label>
-                    <input type="text" class="form-control" name="user_name" value="{{$admin->user_name}}" id="user_name">
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="form-group">
-                    <label for="code" class="form-control-label">{{ trns('code') }}</label>
-                    <span class="form-control text-center">{{ $admin->code }}</span>
-                    <input hidden type="hidden" class="form-control" name="code" value="{{ $admin->code }}" id="code">
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="form-group">
-                    <label for="email" class="form-control-label">{{ trns('email') }}</label>
-                    <input type="text" class="form-control" name="email" value="{{$admin->email}}" id="email">
+                    <label for="name" class="form-control-label">{{  trns('email')}}</label>
+                    <input type="text" class="form-control" name="email" id="email" value="{{$user->email}}">
                 </div>
             </div>
 
             <div class="col-6">
                 <div class="form-group">
                     <label for="password" class="form-control-label">{{ trns('password') }}</label>
-                    <input type="password" class="form-control" name="password" id="password">
+                    <input type="password" class="form-control" name="password"  id="password" >
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="password_confirmation" class="form-control-label">{{ trns('password_confirmation') }}</label>
+                    <input type="password" class="form-control" name="password_confirmation"  id="password_confirmation">
+                </div>
+            </div>
+
+
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="address" class="form-control-label">{{ trns('address') }}</label>
+                    <input type="text" class="form-control" name="address"  id="address" value="{{$user->address}}">
                 </div>
             </div>
             <div class="col-6">
                 <div class="form-group">
-                    <label for="password" class="form-control-label">{{ trns('password_confirmation') }}</label>
-                    <input type="password" class="form-control" name="password_confirmation" id="password">
+                    <label for="phone" class="form-control-label">{{ trns('phone') }}</label>
+                    <input type="text" class="form-control" name="phone" id="phone" value="{{$user->phone}}">
                 </div>
             </div>
+
             <div class="col-12">
                 <div class="form-group">
-                    <label for="role_id" class="form-control-label">{{ trns('system_roles') }}</label>
-                    <select class="form-control" name="role_id" id="role_id">
-                        <option value="">{{ trns('select_role') }}</option>
-                        @foreach($roles as $role)
-                            <option value="{{ \App\Enums\RoleEnum::tryFrom($role->id)->label() }}" {{ $admin->hasRole($role->id) ? 'selected' : '' }}>
-                                {{ \App\Enums\RoleEnum::tryFrom($role->id)->lang() }}
-                            </option>
-                        @endforeach
-                    </select>
+                    <label for="slug" class="form-control-label">{{ trns('slug') }}</label>
+                    <input type="text" readonly class="form-control" name="slug" id="slug" value="{{$user->slug}}">
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="role_id" class="form-control-label">{{ trns('image') }}</label>
+                    <input type="file" class="form-control dropify" name="image" id="image" data-default-file="{{$user->image}}">                       `
                 </div>
             </div>
 

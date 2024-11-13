@@ -36,6 +36,7 @@ class UserRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:6|confirmed',
             'address'=>'required',
             'phone'=>'unique:users,phone',
             'point'=>'nullable',
@@ -49,6 +50,7 @@ class UserRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:6|confirmed',
             'address'=>'required',
             'phone'=>'unique:users,phone',
             'point'=>'nullable',
@@ -62,10 +64,14 @@ class UserRequest extends FormRequest
         return [
                 'name.required' => 'يجب ادخال الاسم',
                 'email.required' => 'يجب ادخال البريد الالكتروني',
+                'password.required_without' => 'يجب ادخال كلمة المرور',
+                'password.min' => 'الحد الادني لكلمة المرور : 6 احرف',
+                'password.confirmed' => 'كلمة المرور غير متطابقة',
                 'email.unique' => 'البريد الالكتروني مستخدم من قبل',
                 'address.required' => 'يجب ادخال العنوان',
                 'phone.unique' => 'رقم الجوال مستخدم من قبل',
                 'phone.required' => 'يجب ادخال رقم الجوال',
-                'image.required' => 'يجب ادخال الصورة',];
+                'image.required' => 'يجب ادخال الصورة'
+                ,];
     }
 }
