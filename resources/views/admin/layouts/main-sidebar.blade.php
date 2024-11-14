@@ -30,9 +30,23 @@
         </li>
 
         <li class="slide">
+            <a class="side-menu__item  {{ Route::currentRouteName() == 'reviews.index' ? 'active' : '' }}" href="{{route('reviews.index')}}">
+                <i class="fa fa-star side-menu__icon"></i>
+                <span class="side-menu__label">{{ trns('review') }}</span>
+            </a>
+        </li>
+
+        <li class="slide">
             <a class="side-menu__item  {{ Route::currentRouteName() == 'settingIndex' ? 'active' : '' }}" href="{{route('settingIndex')}}">
                 <i class="fa fa-wrench side-menu__icon"></i>
                 <span class="side-menu__label">{{ trns('settings') }}</span>
+            </a>
+        </li>
+
+        <li class="slide">
+            <a class="side-menu__item  {{ Route::currentRouteName() == 'web.aboutHome.index' ? 'active' : '' }}" href="{{route('web.aboutHome.index')}}">
+                <i class="fa fa-wrench side-menu__icon"></i>
+                <span class="side-menu__label">{{ trns('home_about') }}</span>
             </a>
         </li>
 

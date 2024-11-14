@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class UserRequest extends FormRequest
+class ReviewRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -35,13 +35,9 @@ class UserRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:6|confirmed',
-            'address'=>'required',
-            'phone'=>'unique:users,phone',
-            'point'=>'nullable',
-            'device_token'=>'nullable',
-            'image'=>'required',
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'required',
         ];
     }
 
@@ -49,13 +45,9 @@ class UserRequest extends FormRequest
     {
         return [
             'name' => 'nullable',
-            'email' => 'nullable|email|unique:users,email,' . $this->user,
-            'password' => 'nullable|min:6|confirmed',
-            'address'=>'nullable',
-            'phone'=>'nullable',
-            'point'=>'nullable',
-            'device_token'=>'nullable',
-            'image'=>'nullable',
+            'title' => 'nullable',
+            'description' => 'nullable',
+            'image' => 'nullable',
         ];
     }
 

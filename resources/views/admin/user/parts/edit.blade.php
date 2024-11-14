@@ -55,7 +55,7 @@
             <div class="col-12">
                 <div class="form-group">
                     <label for="role_id" class="form-control-label">{{ trns('image') }}</label>
-                    <input type="file" class="form-control dropify" name="image" id="image" data-default-file="{{$user->image}}">                       `
+                    <input type="file" class="form-control dropify" name="image" id="image" data-default-file="{{asset('storage/'.$user->image)}}">                       `
                 </div>
             </div>
 

@@ -105,4 +105,12 @@ return array (
   'image' => 'Image',
   'active' => 'Active',
   'inactive' => 'Inactive',
+  'users_count' => 'Users Count',
+  'review' => 'Review',
+  'title' => 'Title',
+  'description' => 'Description',
+  'home_about' => 'Home About',
+  'Home_About' => 'Home About',
+  'link' => 'Link',
+  'subtitle' => 'Subtitle',
 );

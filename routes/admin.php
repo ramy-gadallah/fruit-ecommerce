@@ -2,8 +2,9 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\HomeAboutController;
+use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\SettingController;
-
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -49,7 +50,11 @@ Route::group(
             #============================ User ==================================
             Route::resource('users',UserController::class);
             Route::post('changeUserStatus',[UserController::class,'changeStatus'])->name('changeUserStatus');
-
+             #============================ User ==================================
+            Route::resource('reviews',ReviewController::class);
+            #============================ User =================================
+            Route::get('index',[HomeAboutController::class,'index'])->name('web.aboutHome.index');
+            Route::any('home_about/update/{id}', [HomeAboutController::class, 'update'])->name('home_aboutUpdate');
 
         });
     });

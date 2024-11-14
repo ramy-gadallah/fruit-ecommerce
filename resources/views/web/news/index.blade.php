@@ -23,85 +23,85 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="single-latest-news">
-                        <a href="{{route('web.news.index')}}"><div class="latest-news-bg news-bg-1"></div></a>
+                        <a href="{{route('web.single_news.index')}}"><div class="latest-news-bg news-bg-1"></div></a>
                         <div class="news-text-box">
-                            <h3><a href="{{route('web.news.index')}}">You will vainly look for fruit on it in autumn.</a></h3>
+                            <h3><a href="{{route('web.single_news.index')}}">You will vainly look for fruit on it in autumn.</a></h3>
                             <p class="blog-meta">
                                 <span class="author"><i class="fas fa-user"></i> Admin</span>
                                 <span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
                             </p>
                             <p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus laborum autem, dolores inventore, beatae nam.</p>
-                            <a href="{{route('web.news.index')}}" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+                            <a href="{{route('web.single_news.index')}}" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="single-latest-news">
-                        <a href="{{route('web.news.index')}}"><div class="latest-news-bg news-bg-2"></div></a>
+                        <a href="{{route('web.single_news.index')}}"><div class="latest-news-bg news-bg-2"></div></a>
                         <div class="news-text-box">
-                            <h3><a href="{{route('web.news.index')}}">A man's worth has its season, like tomato.</a></h3>
+                            <h3><a href="{{route('web.single_news.index')}}">A man's worth has its season, like tomato.</a></h3>
                             <p class="blog-meta">
                                 <span class="author"><i class="fas fa-user"></i> Admin</span>
                                 <span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
                             </p>
                             <p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus laborum autem, dolores inventore, beatae nam.</p>
-                            <a href="{{route('web.news.index')}}" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+                            <a href="{{route('web.single_news.index')}}" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="single-latest-news">
-                        <a href="{{route('web.news.index')}}"><div class="latest-news-bg news-bg-3"></div></a>
+                        <a href="{{route('web.single_news.index')}}"><div class="latest-news-bg news-bg-3"></div></a>
                         <div class="news-text-box">
-                            <h3><a href="{{route('web.news.index')}}">Good thoughts bear good fresh juicy fruit.</a></h3>
+                            <h3><a href="{{route('web.single_news.index')}}">Good thoughts bear good fresh juicy fruit.</a></h3>
                             <p class="blog-meta">
                                 <span class="author"><i class="fas fa-user"></i> Admin</span>
                                 <span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
                             </p>
                             <p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus laborum autem, dolores inventore, beatae nam.</p>
-                            <a href="{{route('web.news.index')}}" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+                            <a href="{{route('web.single_news.index')}}" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="single-latest-news">
-                        <a href="{{route('web.news.index')}}"><div class="latest-news-bg news-bg-4"></div></a>
+                        <a href="{{route('web.single_news.index')}}"><div class="latest-news-bg news-bg-4"></div></a>
                         <div class="news-text-box">
-                            <h3><a href="{{route('web.news.index')}}">Fall in love with the fresh orange</a></h3>
+                            <h3><a href="{{route('web.single_news.index')}}">Fall in love with the fresh orange</a></h3>
                             <p class="blog-meta">
                                 <span class="author"><i class="fas fa-user"></i> Admin</span>
                                 <span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
                             </p>
                             <p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus laborum autem, dolores inventore, beatae nam.</p>
-                            <a href="{{route('web.news.index')}}" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+                            <a href="{{route('web.single_news.index')}}" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="single-latest-news">
-                        <a href="{{route('web.news.index')}}"><div class="latest-news-bg news-bg-5"></div></a>
+                        <a href="{{route('web.single_news.index')}}"><div class="latest-news-bg news-bg-5"></div></a>
                         <div class="news-text-box">
-                            <h3><a href="{{route('web.news.index')}}">Why the berries always look delecious</a></h3>
+                            <h3><a href="{{route('web.single_news.index')}}">Why the berries always look delecious</a></h3>
                             <p class="blog-meta">
                                 <span class="author"><i class="fas fa-user"></i> Admin</span>
                                 <span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
                             </p>
                             <p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus laborum autem, dolores inventore, beatae nam.</p>
-                            <a href="{{route('web.news.index')}}" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+                            <a href="{{route('web.single_news.index')}}" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="single-latest-news">
-                        <a href="{{route('web.news.index')}}"><div class="latest-news-bg news-bg-6"></div></a>
+                        <a href="{{route('web.single_news.index')}}"><div class="latest-news-bg news-bg-6"></div></a>
                         <div class="news-text-box">
-                            <h3><a href="{{route('web.news.index')}}">Love for fruits are genuine of John Doe</a></h3>
+                            <h3><a href="{{route('web.single_news.index')}}">Love for fruits are genuine of John Doe</a></h3>
                             <p class="blog-meta">
                                 <span class="author"><i class="fas fa-user"></i> Admin</span>
                                 <span class="date"><i class="fas fa-calendar"></i> 27 December, 2018</span>
                             </p>
                             <p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus laborum autem, dolores inventore, beatae nam.</p>
-                            <a href="{{route('web.news.index')}}" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+                            <a href="{{route('web.single_news.index')}}" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
                         </div>
                     </div>
                 </div>

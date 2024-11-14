@@ -8,6 +8,7 @@ use App\Http\Controllers\web\HomeController;
 use App\Http\Controllers\Web\MainController;
 use App\Http\Controllers\web\NewsController;
 use App\Http\Controllers\web\ShopController;
+use App\Http\Controllers\web\SingleNewController;
 use App\Http\Controllers\web\SinglproductController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -39,6 +40,7 @@ Route::group(
             Route::get('news', [NewsController::class, 'index'])->name('web.news.index');
             Route::get('shop', [ShopController::class, 'index'])->name('web.shop.index');
             Route::get('single-product', [SinglproductController::class, 'index'])->name('web.single_product.index');
+            Route::get('single_news', [SingleNewController::class, 'index'])->name('web.single_news.index');
 
         });
 

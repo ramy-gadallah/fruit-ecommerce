@@ -23,7 +23,7 @@ class AdminSeeder extends Seeder
             'user_name' => 'admin',
             'code' => Str::random(11),
             'email' => 'admin@admin.com',
-            'password' => bcrypt('admin'),
+            'password' => bcrypt('123456'),
         ]);
 
         foreach (RoleEnum::cases() as $role) {

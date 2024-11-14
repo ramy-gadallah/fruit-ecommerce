@@ -3,16 +3,16 @@
 namespace App\Services;
 
 use App\Enums\RoleEnum;
-use App\Models\User as ObjModel;
+use App\Models\Review as ObjModel;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Spatie\Permission\Models\Role;
 use Yajra\DataTables\DataTables;
 
-class UserService extends BaseService
+class ReviewService extends BaseService
 {
-    protected string $folder = 'admin/user';
+    protected string $folder = 'admin/review';
     protected string $route = 'users';
 
     public function __construct(ObjModel $model)
@@ -63,6 +63,7 @@ class UserService extends BaseService
 
 
 
+
     public function create()
     {
 
@@ -71,40 +72,32 @@ class UserService extends BaseService
 
     public function store($data)
     {
-        $data['password'] = Hash::make($data['password']);
-        $data['slug']=$this->generateUserCode();
 
         // $data['image']=$this->handleFile($data['image'],'user');
 
-        $data['image']=$data['image']->store('user', 'public');
+        $data['image']=$data['image']->store('review', 'public');
 
         $this->createData($data);
         return response()->json(['status' => 200]);
     }
 
-    public function edit($user)
+    public function edit($ObjModel)
     {
-        return view($this->folder . '/parts/edit',compact('user'));
+
+        // return $ObjModel;
+        return view($this->folder . '/parts/edit',compact('ObjModel'));
     }
 
     public function update($id, $data)
     {
         $user = $this->getById($id);
 
-        if ($data['password'] && $data['password'] != null) {
-
-            $data['password'] = Hash::make($data['password']);
-        } else {
-            unset($data['password']);
-        }
-
         if(isset($data['image']) && $data['image'] != null){
             $data['image']=$data['image']->store('user', 'public');
 
-
-        if($user->image){
-            Storage::disk('public')->delete($user->image);
-        }
+            if($user->image){
+                Storage::disk('public')->delete($user->image);
+            }
 
         }
 
