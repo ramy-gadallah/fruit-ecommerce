@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ReviewRequest;
 use App\Models\Review as ObjModel;
-use App\Services\ReviewService as ObjService;
-use App\Services\ReviewService;
+use App\Services\admin\ReviewService as ObjService;
+use App\Services\BaseService;
+
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\HomeAboutRequest;
 use Illuminate\Http\Request;
-use App\Services\HomeAboutService as ObjService;
+use App\Services\admin\HomeAboutService as ObjService;
 
 class HomeAboutController extends Controller
 {

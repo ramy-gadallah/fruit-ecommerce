@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
-use App\Services\UserService as ObjService;
+use App\Services\admin\UserService as ObjService;
 use Illuminate\Http\Request;
 
 class UserController extends Controller

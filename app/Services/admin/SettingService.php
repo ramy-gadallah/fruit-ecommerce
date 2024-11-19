@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Services;
-
+namespace App\Services\admin;
+use App\Services\BaseService;
 use App\Models\Setting as ObjModel;
 
 

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Interfaces\AuthInterface;
 use Illuminate\Http\Request;
-use App\Services\AuthService as ObjService;
+use App\Services\admin\AuthService as ObjService;
 
 use Illuminate\Routing\Controller;
 
@@ -26,6 +26,7 @@ class AuthController extends Controller
 
     public function logout()
     {
+
         return $this->objService->logout();
     }
 

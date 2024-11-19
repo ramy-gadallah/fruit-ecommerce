@@ -29,7 +29,7 @@
                                 <th class="min-w-50px">{{ trns('name') }}</th>
                                 <th class="min-w-50px">{{ trns('title') }}</th>
                                 <th class="min-w-50px">{{ trns('description') }}</th>
-                                <th class="min-w-50px">{{ trns('email') }}</th>
+                                <th class="min-w-50px">{{ trns('image') }}</th>
                                 <th class="min-w-50px rounded-end">{{ trns('actions') }}</th>
                             </tr>
                             </thead>

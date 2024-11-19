@@ -30,9 +30,37 @@
         </li>
 
         <li class="slide">
+            <a class="side-menu__item  {{ Route::currentRouteName() == 'admin.slider.index' ? 'active' : '' }}" href="{{route('admin.slider.index')}}">
+                <i class="fa fa-users side-menu__icon"></i>
+                <span class="side-menu__label">{{ trns('slider') }}</span>
+            </a>
+        </li>
+
+        <li class="slide">
             <a class="side-menu__item  {{ Route::currentRouteName() == 'reviews.index' ? 'active' : '' }}" href="{{route('reviews.index')}}">
                 <i class="fa fa-star side-menu__icon"></i>
                 <span class="side-menu__label">{{ trns('review') }}</span>
+            </a>
+        </li>
+
+        <li class="slide">
+            <a class="side-menu__item  {{ Route::currentRouteName() == 'category.index' ? 'active' : '' }}" href="{{route('category.index')}}">
+                <i class="fa fa-bars side-menu__icon"></i>
+                <span class="side-menu__label">{{ trns('Categories') }}</span>
+            </a>
+        </li>
+
+        <li class="slide">
+            <a class="side-menu__item  {{ Route::currentRouteName() == 'unit.index' ? 'active' : '' }}" href="{{route('unit.index')}}">
+                <i class="fa fa-ruler side-menu__icon"></i>
+                <span class="side-menu__label">{{ trns('units') }}</span>
+            </a>
+        </li>
+
+        <li class="slide">
+            <a class="side-menu__item  {{ Route::currentRouteName() == 'product.index' ? 'active' : '' }}" href="{{route('product.index')}}">
+                <i class="fa fa-box side-menu__icon"></i>
+                <span class="side-menu__label">{{ trns('Product') }}</span>
             </a>
         </li>
 
@@ -44,8 +72,8 @@
         </li>
 
         <li class="slide">
-            <a class="side-menu__item  {{ Route::currentRouteName() == 'web.aboutHome.index' ? 'active' : '' }}" href="{{route('web.aboutHome.index')}}">
-                <i class="fa fa-wrench side-menu__icon"></i>
+            <a class="side-menu__item  {{ Route::currentRouteName() == 'admin.aboutHome.index' ? 'active' : '' }}" href="{{route('admin.aboutHome.index')}}">
+                <i class="fa fa-question-circle side-menu__icon"></i>
                 <span class="side-menu__label">{{ trns('home_about') }}</span>
             </a>
         </li>

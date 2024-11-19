@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\admin;
 
 use App\Models\Admin;
 use Illuminate\Support\Facades\Auth;

@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\admin;
 
 use App\Models\HomeAbout as ObjModel;
 use Illuminate\Support\Facades\Storage;
+use App\Services\BaseService;
+
 
 class HomeAboutService extends BaseService
 {

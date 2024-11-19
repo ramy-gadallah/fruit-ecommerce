@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AdminRequest as ObjRequest;
 use App\Models\Admin;
-use App\Services\AdminService as ObjService;
+use App\Services\Admin\AdminService as ObjService;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -51,3 +51,5 @@ class AdminController extends Controller
         return $this->objService->update($id, $data);
     }
 }//end class
+
+

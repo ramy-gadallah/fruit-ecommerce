@@ -2,15 +2,16 @@
 
 @section('content')
 <!-- hero area -->
-<div class="hero-area hero-bg">
+
+<div class="hero-area hero-bg" style="background-image: url({{ isset($slider->image) ? asset('storage/' . $slider->image) : asset('web/imsssssg/hero-bg.jpg') }});">
     <div class="container">
         <div class="row">
             <div class="col-lg-9 offset-lg-2 text-center">
                 <div class="hero-text">
-                    <div class="hero-text-tablecell">
-                        <p class="subtitle">Fresh & Organic</p>
-                        <h1>Delicious Seasonal Fruits</h1>
-                        <div class="hero-btns">
+                    <div class="hero-text-tablecell" style="background-image: url)">
+                        <p class="subtitle">{{isset($slider->title) ? $slider->title : trns('titl default')}}</p>
+                        <p class="subtitle">{{isset($slider->description) ? $slider->description : trns('description default')}}</p>
+                        <div class="hero-btns" >
                             <a href="{{route('web.shop.index')}}" class="boxed-btn">Fruit Collection</a>
                             <a href="{{route('web.contact.index')}}" class="bordered-btn">Contact Us</a>
                         </div>
@@ -79,38 +80,20 @@
         </div>
 
         <div class="row">
+                @foreach ($products as $product)
             <div class="col-lg-4 col-md-6 text-center">
                 <div class="single-product-item">
                     <div class="product-image">
-                        <a href="{{route('web.single_product.index')}}"><img src="{{asset('web')}}/img/products/product-img-1.jpg" alt=""></a>
+                        <a href="{{route('web.single_product.index')}}"><img src="{{asset('storage/'.$product->image)}}" alt=""></a>
                     </div>
-                    <h3>Strawberry</h3>
-                    <p class="product-price"><span>Per Kg</span> 85$ </p>
+                    <h3>{{$product->name}}</h3>
+                    <p class="product-price"><span>Per {{$product->unit->name}}</span> {{$product->price}}$ </p>
                     <a href="{{route('web.cart.index')}}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                 </div>
             </div>
+            @endforeach
 
-            <div class="col-lg-4 col-md-6 text-center">
-                <div class="single-product-item">
-                    <div class="product-image">
-                        <a href="{{route('web.single_product.index')}}"><img src="{{asset('web')}}/img/products/product-img-2.jpg" alt=""></a>
-                    </div>
-                    <h3>Berry</h3>
-                    <p class="product-price"><span>Per Kg</span> 70$ </p>
-                    <a href="{{route('web.cart.index')}}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-                </div>
-            </div>
 
-            <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
-                <div class="single-product-item">
-                    <div class="product-image">
-                        <a href="{{route('web.single_product.index')}}"><img src="{{asset('web')}}/img/products/product-img-3.jpg" alt=""></a>
-                    </div>
-                    <h3>Lemon</h3>
-                    <p class="product-price"><span>Per Kg</span> 35$ </p>
-                    <a href="{{route('web.cart.index')}}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-                </div>
-            </div>
         </div>
     </div>
 </div>
@@ -153,47 +136,22 @@
         <div class="row">
             <div class="col-lg-10 offset-lg-1 text-center">
                 <div class="testimonial-sliders">
+@foreach($reviews as $review)
                     <div class="single-testimonial-slider">
                         <div class="client-avater">
-                            <img src="{{asset('web')}}/img/avaters/avatar1.png" alt="">
+                            <img src="{{asset('storage/'.$review->image)}}" >
                         </div>
                         <div class="client-meta">
-                            <h3>Saira Hakim <span>Local shop owner</span></h3>
+                            <h3>{{$review->name}} <span>{{$review->title}}</span></h3>
                             <p class="testimonial-body">
-                                " Sed ut perspiciatis unde omnis iste natus error veritatis et  quasi architecto beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium "
+                                {{$review->description}}
                             </p>
                             <div class="last-icon">
                                 <i class="fas fa-quote-right"></i>
                             </div>
                         </div>
                     </div>
-                    <div class="single-testimonial-slider">
-                        <div class="client-avater">
-                            <img src="{{asset('web')}}/img/avaters/avatar2.png" alt="">
-                        </div>
-                        <div class="client-meta">
-                            <h3>David Niph <span>Local shop owner</span></h3>
-                            <p class="testimonial-body">
-                                " Sed ut perspiciatis unde omnis iste natus error veritatis et  quasi architecto beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium "
-                            </p>
-                            <div class="last-icon">
-                                <i class="fas fa-quote-right"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-testimonial-slider">
-                        <div class="client-avater">
-                            <img src="{{asset('web')}}/img/avaters/avatar3.png" alt="">
-                        </div>
-                        <div class="client-meta">
-                            <h3>Jacob Sikim <span>Local shop owner</span></h3>
-                            <p class="testimonial-body">
-                                " Sed ut perspiciatis unde omnis iste natus error veritatis et  quasi architecto beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium "
-                            </p>
-                            <div class="last-icon">
-                                <i class="fas fa-quote-right"></i>
-                            </div>
-                        </div>
+            @endforeach
                     </div>
                 </div>
             </div>
@@ -226,13 +184,13 @@
 <!-- end advertisement section -->
 
 <!-- shop banner -->
-<section class="shop-banner">
+{{-- <section class="shop-banner">
     <div class="container">
         <h3>December sale is on! <br> with big <span class="orange-text">Discount...</span></h3>
         <div class="sale-percent"><span>Sale! <br> Upto</span>50% <span>off</span></div>
         <a href="shop.html" class="cart-btn btn-lg">Shop Now</a>
     </div>
-</section>
+</section> --}}
 <!-- end shop banner -->
 
 <!-- latest news -->

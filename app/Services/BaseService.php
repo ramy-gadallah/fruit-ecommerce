@@ -217,14 +217,16 @@ abstract class BaseService
 
     public function changeStatus($request)
     {
-        $user = $this->getById($request->id);
 
-        if ($user) {
-                $user->status = $user->status == 1 ? 0 : 1;
+        $obj = $this->getById($request->id);
+
+
+        if ($obj) {
+                $obj->status = $obj->status == 1 ? 0 : 1;
 
             }
 
-            $user->save();
+            $obj->save();
             return response()->json(['status' => 200]);
 
 

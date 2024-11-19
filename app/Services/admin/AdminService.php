@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\admin;
 
 use App\Enums\RoleEnum;
 use App\Models\Admin as ObjModel;
@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Spatie\Permission\Models\Role;
 use Yajra\DataTables\DataTables;
+use App\Services\BaseService ;
 
 class AdminService extends BaseService
 {
