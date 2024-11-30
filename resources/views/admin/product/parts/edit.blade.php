@@ -4,7 +4,7 @@
         @method('PUT')
         <input type="hidden" value="{{ $ObjModel->id }}" name="id">
         <div class="row">
-            <div class="col-6">
+            <div class="col-12">
                 <div class="form-group">
                     <label for="name" class="form-control-label">{{ trns('name') }}</label>
                     <input type="text" class="form-control" name="name" id="name"
@@ -12,11 +12,11 @@
                 </div>
             </div>
 
-            <div class="col-6">
+            <div class="col-12">
                 <div class="form-group">
                     <label for="name" class="form-control-label">{{ trns('description') }}</label>
-                    <input type="text" class="form-control" name="description" id="description"
-                        value="{{ $ObjModel->description }}">
+                    <textarea type="text" rows="6" class="form-control" name="description" id="description"
+                    >{{ $ObjModel->description }}</textarea>
                 </div>
             </div>
 

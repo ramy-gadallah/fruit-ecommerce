@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use Illuminate\Support\Facades\Auth;
 use Request;
 
 class Authenticate extends Middleware
@@ -19,8 +20,15 @@ class Authenticate extends Middleware
 //            if(Request::is('admin/*') || Request::is('admin'))
 //                return route('admin.login');
 //            else{
-                toastInfo('يرجي تسجيل الدخول');
-                return route('admin.login');
+                // toastInfo('يرجي تسجيل الدخول');
+                // return route('admin.login');
+
+                // check guard to redirect
+                if(Auth::guard('admin')->check()){
+                    return route('admin.login');
+                }else{
+                    return route('web.login');
+                }
 //            }
         }
     }

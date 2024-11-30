@@ -46,6 +46,7 @@ class HomeAboutRequest extends FormRequest
     {
         return [
             'link' => 'nullable|url',
+            'image' => 'nullable|image',
             'title' => 'nullable|string',
             'subtitle' => 'nullable|string',
             'description' => 'nullable|string',

@@ -2,8 +2,8 @@
 
 namespace App\Services\web;
 use App\Services\BaseService;
-use App\Models\Cart as ObjModel;
-
+use App\Models\Blog as ObjModel;
+use App\Models\BreadCramb;
 
 class NewService extends BaseService
 {
@@ -17,6 +17,9 @@ class NewService extends BaseService
 
     public function index()
     {
-        return view($this->folder.'.index');
+        $blogs=$this->model->get();
+        $breadcrumb=BreadCramb::where('page','news')->where('status',1)->first();
+
+        return view($this->folder.'.index',compact('blogs','breadcrumb'));
     }
 }

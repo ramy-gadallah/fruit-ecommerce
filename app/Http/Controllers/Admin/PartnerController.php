@@ -2,85 +2,61 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-
+use App\Http\Requests\PartnerRequest;
 use App\Models\Partner;
 use Illuminate\Http\Request;
+use App\Services\admin\PartnerService as ObjService;
 
 class PartnerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function __construct(protected ObjService $ObjService)
     {
-        //
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function index(Request $request)
+    {
+        return $this->ObjService->index($request);
+    }
+
+
     public function create()
     {
-        //
+
+        return $this->ObjService->create();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+    public function store(PartnerRequest $request)
     {
-        //
+        return $this->ObjService->store($request->all());
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Partner  $partner
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Partner $partner)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Partner  $partner
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Partner $partner)
     {
-        //
+        return $this->ObjService->edit($partner);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Partner  $partner
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Partner $partner)
+
+    public function update(PartnerRequest $request, $id)
     {
-        //
+        return $this->ObjService->update($id, $request->all());
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Partner  $partner
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Partner $partner)
+
+    public function destroy($id)
     {
-        //
+        return $this->ObjService->destroy($id);
+    }
+
+    public function changeStatus(Request $request){
+        return $this->ObjService->changeStatus($request);
     }
 }

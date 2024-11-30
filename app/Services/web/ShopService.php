@@ -2,6 +2,7 @@
 
 namespace App\Services\web;
 
+use App\Models\BreadCramb;
 use App\Models\Product;
 use App\Services\BaseService;
 // use App\Models\Cart as ObjModel;
@@ -20,8 +21,11 @@ class ShopService
     public function index()
     {
         $product=Product::where('status',1)->get();
+        $breadcrumb = BreadCramb::where('page', 'shop')->where('status', 1)->first();
+
         return view($this->folder.'.index',[
-            'products'=>$product
+            'products'=>$product,
+            'breadcrumb'=>$breadcrumb
         ]);
     }
 }

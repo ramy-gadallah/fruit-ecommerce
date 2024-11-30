@@ -43,5 +43,5 @@ class HomeAboutService extends BaseService
             return response()->json(['status' => 200]);
         }
 
-    } // update
+    }
 }

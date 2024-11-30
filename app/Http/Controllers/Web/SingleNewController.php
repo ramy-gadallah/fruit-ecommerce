@@ -11,7 +11,7 @@ class SingleNewController extends Controller
     public function __construct(protected ObjService $objService){
 
     }
-    public function index(){
-        return $this->objService->index();
+    public function index($id){
+        return $this->objService->index($id);
     }
 }

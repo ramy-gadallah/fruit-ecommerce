@@ -2,85 +2,59 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-
-use App\Models\BreadCramb;
+use App\Http\Requests\breadCrumbRequest;
+use App\Models\BreadCramb as BreadCramb;
 use Illuminate\Http\Request;
+use App\Services\admin\breadCrumbService as ObjService;
 
 class BreadCrambController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function __construct(protected ObjService $ObjService)
     {
-        //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function index(Request $request)
+    {
+        return $this->ObjService->index($request);
+    }
+
+
     public function create()
     {
-        //
+        return $this->ObjService->create();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+    public function store(breadCrumbRequest $request)
     {
-        //
+        return $this->ObjService->store($request->all());
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\BreadCramb  $breadCramb
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(BreadCramb $breadCramb)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\BreadCramb  $breadCramb
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(BreadCramb $breadCramb)
+
+    public function edit($id)
     {
-        //
+        return $this->ObjService->edit($id);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\BreadCramb  $breadCramb
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, BreadCramb $breadCramb)
+
+    public function update(breadCrumbRequest $request ,$id)
     {
-        //
+        return $this->ObjService->update($id,$request->all());
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\BreadCramb  $breadCramb
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(BreadCramb $breadCramb)
+
+    public function destroy($id)
     {
-        //
+            return $this->ObjService->destroy($id);
+    }
+
+    public function changeStatus(Request $request){
+        return $this->ObjService->changeStatus($request);
     }
 }

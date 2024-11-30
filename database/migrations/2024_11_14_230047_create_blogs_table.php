@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('image');
             $table->string('created_by');
-            $table->timestamp('date');
+            $table->date('date');
             $table->timestamps();
         });
     }

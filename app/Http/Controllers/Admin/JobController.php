@@ -2,81 +2,64 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-
+use App\Http\Requests\JobRequest;
 use App\Models\Job;
 use Illuminate\Http\Request;
+use App\Services\admin\JobService as ObjService;
 
 class JobController extends Controller
 {
 
-    public function index()
+    public function __construct(protected ObjService $objService)
     {
-        //
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function index(Request $request)
+    {
+        return $this->objService->index($request);
+    }
+
+
     public function create()
     {
-        //
+        return $this->objService->create();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+    public function store(JobRequest $request)
     {
-        //
+        $data=$request->validated();
+        return $this->objService->store($data);
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Job  $job
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Job $job)
+
+    public function show()
     {
-        //
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Job  $job
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Job $job)
     {
-        //
+        return $this->objService->edit($job);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Job  $job
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Job $job)
+
+    public function update(JobRequest $request, $id)
     {
-        //
+        $data=$request->validated();
+        return $this->objService->update($id,$data);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Job  $job
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Job $job)
+
+    public function destroy($id)
     {
-        //
+        return $this->objService->destroy($id);
+    }
+
+    public function changeStatus(Request $request){
+        return $this->objService->changeStatus($request);
     }
 }

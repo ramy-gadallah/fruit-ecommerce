@@ -15,10 +15,12 @@ class SettingService extends BaseService
     public function index()
     {
         return view('admin.setting.index');
-    } // index
+    }
 
     public function update($data)
     {
+
+        unset($data['_token']);
         $setting = $this->model->first();
         if (isset($data['logo'])) {
             if ($setting &&file_exists($setting->logo)) {
@@ -34,6 +36,17 @@ class SettingService extends BaseService
             $data['favicon'] = $this->handleFile($data['favicon'], 'uploads/settings');
 
         }
-       return $this->updateData($setting->id, $data);
-    } // update
+
+        foreach ($data as $key => $value) {
+
+            $this->model->updateOrCreate(
+                ['key' => $key],
+                ['value' => $value]
+            )
+            ;
+        }
+
+        return response()->json(['status' => 200]);
+
+    }
 }

@@ -2,14 +2,25 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\BreadCrambController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\admin\ContactController;
+use App\Http\Controllers\Admin\CouponController;
+use App\Http\Controllers\Admin\DealController;
 use App\Http\Controllers\Admin\HomeAboutController;
+use App\Http\Controllers\Admin\JobController;
+use App\Http\Controllers\admin\NewController as AdminNewController;
+use App\Http\Controllers\Admin\NewLetterController;
+use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\UnitController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\web\NewController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -72,6 +83,28 @@ Route::group(
                 #============================ slider =================================
                 Route::get('slider', [SliderController::class, 'index'])->name('admin.slider.index');
                 Route::any('sliderUpdate/{id}', [SliderController::class, 'update'])->name('admin.slider.update');
+                #============================ Deals =================================
+                Route::get('deals', [DealController::class, 'index'])->name('deals.index');
+                Route::any('deals/update/{id}', [DealController::class, 'update'])->name('deals.update');
+                #============================ Jobs =================================
+                Route::resource('jobs', JobController::class);
+                Route::post('changeJobStatus',[JobController::class, 'changeStatus'])->name('changeJobStatus');
+                #============================ team =================================
+                Route::resource('team', TeamController::class);
+                #============================ partners =================================
+                Route::resource('partners',PartnerController::class);
+                Route::post('changepartnerStatus',[PartnerController::class, 'changeStatus'])->name('changepartnerStatus');
+                #============================ partners =================================
+               Route::resource('blogs', BlogController::class);
+                #============================ contact =================================
+                Route::resource('contact_us',ContactController::class);
+                #============================ breadcrumb =================================
+                Route::resource('breadcrumb',BreadCrambController::class);
+                Route::post('changebreadcrumbStatus',[BreadCrambController::class, 'changeStatus'])->name('changebreadcrumbStatus');
+                #============================ coupon =================================
+                Route::resource('coupon',CouponController::class);
+                Route::post('changecouponStatus',[CouponController::class, 'changeStatus'])->name('changecouponStatus');
+
 
 
 

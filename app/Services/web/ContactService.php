@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Services\web;
+
+use App\Models\BreadCramb;
 use App\Services\BaseService;
-use App\Models\Cart as ObjModel;
+use App\Models\Contact as ObjModel;
 
 
 class ContactService extends BaseService
@@ -16,6 +18,20 @@ class ContactService extends BaseService
 
     public function index()
     {
-        return view($this->folder.'.index');
+        $breadcrumb=BreadCramb::where('page','contact')->where('status',1)->first();
+        return view($this->folder.'.index',[
+            'breadcrumb'=>$breadcrumb
+        ]);
+    }
+    public function store($request)
+    {
+        $this->createData($request);
+         return response()->json([
+            'status' => 200,
+            'message' => 'Created Successfully',
+            'redirect'=>route('web.contact.index')
+        ]);
+
+
     }
 }

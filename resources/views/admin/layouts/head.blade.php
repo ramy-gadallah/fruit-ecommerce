@@ -4,7 +4,8 @@
 
 <!-- FAVICON -->
 <link rel="shortcut icon" type="image/x-icon"
-      href="{{ getFile(isset($setting) ? $setting->logo : null)}}"/>
+      {{-- href="{{ getFile(isset($setting['favicon']->value) ? $setting->logo : null)}}"/> --}}
+      href="{{asset('web/img/favicon.png')}}"/>
 
 <!-- TITLE -->
 <title>@yield('title')</title>
@@ -72,7 +73,7 @@
 <script defer src="{{asset('assets/admin')}}/assets/iconfonts/font-awesome/js/brands.js"></script>
 <script defer src="{{asset('assets/admin')}}/assets/iconfonts/font-awesome/js/solid.js"></script>
 <script defer src="{{asset('assets/admin')}}/assets/iconfonts/font-awesome/js/fontawesome.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" rel="stylesheet"/> // dropify
 
 
 <link href="{{ asset('assets/admin/assets/css/select2.min.css') }}" rel="stylesheet"/>

@@ -1,7 +1,10 @@
 @extends('web.layouts.master')
 @section('content')
 	<!-- breadcrumb-section -->
-	<div class="breadcrumb-section breadcrumb-bg">
+	<div class="breadcrumb-section breadcrumb-bg"
+    style="background-image: url({{ isset($breadcrumb->image) ? asset('storage/' . $breadcrumb->image) : asset('web/imsssssg/hero-bg.jpg') }});">
+
+    >
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
@@ -22,13 +25,15 @@
 				<div class="col-lg-8">
 					<div class="single-article-section">
 						<div class="single-article-text">
-							<div class="single-artcile-bg"></div>
+							<div class="single-artcile-bg"
+                            style="{{ isset($obj->image) ? 'background-image: url(' . asset('storage/' . $obj->image) . ');' : '' }}"
+                            ></div>
 							<p class="blog-meta">
-								<span class="author"><i class="fas fa-user"></i> Admin</span>
-								<span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
+								<span class="author"><i class="fas fa-user"></i> {{$obj->created_by}}</span>
+								<span class="date"><i class="fas fa-calendar"></i> {{ Carbon\Carbon::parse($obj->date)->format('d M Y') }}</span>
 							</p>
-							<h2>Pomegranate can prevent heart disease</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt beatae nemo quaerat, doloribus obcaecati odio!</p>
+							<h2>{{$obj->title}}</h2>
+							<p>{{$obj->description}}</p>
 						</div>
 
 						<div class="comments-list-wrap">

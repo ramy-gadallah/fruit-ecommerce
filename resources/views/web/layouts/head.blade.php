@@ -28,5 +28,5 @@
     <link rel="stylesheet" href="{{asset('web')}}/css/main.css">
     <!-- responsive -->
     <link rel="stylesheet" href="{{asset('web')}}/css/responsive.css">
-
+    @toastr_css
 </head>

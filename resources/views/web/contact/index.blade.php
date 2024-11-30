@@ -2,7 +2,9 @@
 @section('content')
 
     <!-- breadcrumb-section -->
-    <div class="breadcrumb-section breadcrumb-bg">
+    <div class="breadcrumb-section breadcrumb-bg"
+    style="background-image: url({{ isset($breadcrumb->image) ? asset('storage/' . $breadcrumb->image) : asset('web/imsssssg/hero-bg.jpg') }});">
+    >
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2 text-center">
@@ -27,7 +29,9 @@
                     </div>
                     <div id="form_status"></div>
                     <div class="contact-form">
-                        <form type="POST" id="fruitkha-contact" onSubmit="return valid_datas( this );">
+
+
+                        <form  id="contact_form" >
                             <p>
                                 <input type="text" placeholder="Name" name="name" id="name">
                                 <input type="email" placeholder="Email" name="email" id="email">
@@ -37,9 +41,10 @@
                                 <input type="text" placeholder="Subject" name="subject" id="subject">
                             </p>
                             <p><textarea name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea></p>
-                            <input type="hidden" name="token" value="FsWga4&@f6aw" />
                             <p><input type="submit" value="Submit"></p>
                         </form>
+
+
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -82,3 +87,42 @@
     <!-- end google map section -->
 
 @endsection
+@section('script')
+<script>
+    $(document).ready(function() {
+        $('#contact_form').on('submit', function(event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+            formData.append('_token', '{{ csrf_token() }}');
+            $.ajax({
+                method: "POST",
+                enctype: 'multipart/form-data',
+                url: "{{ route('web_contact_us.store') }}",
+                data: formData,
+                processData: false,
+                contentType: false,
+                cache: false,
+
+                success: function(data) {
+                    if (data.status == 200) {
+                        $('#create').modal('hide');
+                        toastr.success(data.message);
+                        setTimeout(() => {
+                            window.location.href = data.redirect;
+                        }, 2000);
+                        $('#createForm')[0].reset();xhr
+                        clearModalContents();
+                    }
+                },
+                error: function(xhr, status, error) {
+                    var errors = xhr.responseJSON.errors;
+                    $.each(errors, function(key, value) {
+                        toastr.error(value);
+                    });
+                }
+            });
+        });
+    });
+</script>
+@endsection
+

@@ -32,6 +32,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     transform: translateY(0);
   }
 
+
   40% {
     -webkit-transform: translateY(-30px);
     transform: translateY(-30px);
@@ -3135,3 +3136,111 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   -webkit-animation-name: zoomOutUp;
   animation-name: zoomOutUp;
 }
+.cart-btn{
+    font-family: 'Poppins', sans-serif;
+    display: inline-block;
+    background-color: #F28123;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 40px;
+}
+
+/* Style for Login and Register buttons */
+.login-register-btn {
+    color: #000; /* Black text */
+    background-color: #F28123; /* Orange background */
+    padding: 6px 12px;  /* Smaller padding for compact size */
+    border-radius: 3px; /* Smaller border radius */
+    font-size: 12px; /* Smaller font size */
+    text-transform: uppercase;
+    margin-left: 8px; /* Smaller space between the buttons */
+    transition: background-color 0.3s ease;
+    display: inline-block; /* Keep the buttons inline */
+}
+
+/* Style for Login and Register buttons */
+.login-register-btn {
+    color: #000; /* Black text */
+    background-color: #F28123; /* Orange background */
+    padding: 6px 12px;  /* Smaller padding for compact size */
+    border-radius: 20px; /* Rounded corners (increase for more roundness) */
+    font-size: 12px; /* Smaller font size */
+    text-transform: uppercase;
+    margin-left: 8px; /* Smaller space between the buttons */
+    transition: background-color 0.3s ease;
+    display: inline-block; /* Keep the buttons inline */
+}
+
+/* Add hover effect with dark gray color */
+.login-register-btn:hover {
+    background-color: #343a40; /* Dark gray on hover */
+    color: #fff; /* White text on hover */
+}
+
+/* Center the login and register buttons in the menu */
+.main-menu ul {
+    display: flex;
+    justify-content: flex-end; /* Align items to the right */
+}
+
+.main-menu li {
+    list-style: none;
+    margin: 0 8px; /* Smaller margin between menu items */
+}
+
+/* Style for mobile view */
+@media (max-width: 768px) {
+    .login-register-btn {
+        font-size: 10px; /* Even smaller font size on mobile */
+        padding: 5px 10px; /* Even smaller padding on mobile */
+    }
+}
+
+/* Styling for the form */
+#register-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Style for form labels */
+#register-form label {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+/* Style for form input fields */
+#register-form input,
+#register-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Style for the submit button */
+#register-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #F28123;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#register-form button:hover {
+    background-color: #D56F1E; /* Darker orange on hover */
+}
+
+
+
+
+
+

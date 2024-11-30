@@ -2,17 +2,17 @@
     <form id="addForm" class="addForm" method="POST" enctype="multipart/form-data" action="{{ route('product.store') }}">
         @csrf
         <div class="row">
-            <div class="col-6">
+            <div class="col-12">
                 <div class="form-group">
                     <label for="name" class="form-control-label">{{ trns('name') }}</label>
                     <input type="text" class="form-control" name="name" id="name">
                 </div>
             </div>
 
-            <div class="col-6">
+            <div class="col-12">
                 <div class="form-group">
                     <label for="name" class="form-control-label">{{ trns('description') }}</label>
-                    <input type="text" class="form-control" name="description" id="description">
+                    <textarea rows="6" type="text" class="form-control" name="description" id="description"></textarea>
                 </div>
             </div>
 

@@ -17,8 +17,7 @@ class HomeAboutController extends Controller
 
     public function update(HomeAboutRequest $request)
     {
-        $data = $request->validated();
-        return $this->objService->update($data);
+        return $this->objService->update($request->all());
     }
 
 }

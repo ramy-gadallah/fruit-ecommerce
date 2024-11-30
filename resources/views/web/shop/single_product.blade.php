@@ -1,7 +1,9 @@
 @extends('web.layouts.master')
 @section('content')
     <!-- breadcrumb-section -->
-    <div class="breadcrumb-section breadcrumb-bg">
+    <div class="breadcrumb-section breadcrumb-bg"
+    style="background-image: url({{ isset($breadcrumb->image) ? asset('storage/' . $breadcrumb->image) : asset('web/imsssssg/hero-bg.jpg') }});">
+
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2 text-center">
@@ -21,23 +23,21 @@
             <div class="row">
                 <div class="col-md-5">
                     <div class="single-product-img">
-                        <a href="single-product.html"><img src="{{ asset('web') }}./img/products/product-img-2.jpg"
+                        <a href="{{route('web.single_product.index', $product->id)}}"><img src="{{asset('storage/' . $product->image) }}"
                                 alt=""></a>
                     </div>
                 </div>
                 <div class="col-md-7">
                     <div class="single-product-content">
-                        <h3>Green apples have polyphenols</h3>
-                        <p class="single-product-pricing"><span>Per Kg</span> $50</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta sint dignissimos, rem commodi cum
-                            voluptatem quae reprehenderit repudiandae ea tempora incidunt ipsa, quisquam animi perferendis
-                            eos eum modi! Tempora, earum.</p>
+                        <h3>{{$product->name}}</h3>
+                        <p class="single-product-pricing"><span>Per {{$product->unit->name}}</span> ${{$product->price}}</p>
+                        <p>{{$product->description}}</p>
                         <div class="single-product-form">
                             <form action="index.html">
                                 <input type="number" placeholder="0">
                             </form>
                             <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-                            <p><strong>Categories: </strong>Fruits, Organic</p>
+                            <p><strong>Categories: </strong>{{$product->category->name}}</p>
                         </div>
                         <h4>Share:</h4>
                         <ul class="product-share">
@@ -65,40 +65,22 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
+                @foreach ($product_related as $product_related )
+
                 <div class="col-lg-4 col-md-6 text-center">
                     <div class="single-product-item">
                         <div class="product-image">
-                            <a href="single-product.html"><img src="{{ asset('web/img/products/product-img-1.jpg') }}"
+                            <a href="{{route('web.single_product.index', $product_related->id)}}"><img src="{{ asset('storage/'.$product_related->image) }}"
                                     alt=""></a>
                         </div>
-                        <h3>Strawberry</h3>
-                        <p class="product-price"><span>Per Kg</span> 85$ </p>
+                        <h3>{{$product_related->name}}</h3>
+                        <p class="product-price"><span>Per {{$product_related->unit->name}}</span> {{$product_related->price}}$ </p>
                         <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 text-center">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="{{ asset('web') }}./img/products/product-img-2.jpg"
-                                    alt=""></a>
-                        </div>
-                        <h3>Berry</h3>
-                        <p class="product-price"><span>Per Kg</span> 70$ </p>
-                        <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 offset-lg-0 offset-md-3 text-center">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="{{ asset('web') }}./img/products/product-img-3.jpg"
-                                    alt=""></a>
-                        </div>
-                        <h3>Lemon</h3>
-                        <p class="product-price"><span>Per Kg</span> 35$ </p>
-                        <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

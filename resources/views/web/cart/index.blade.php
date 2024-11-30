@@ -1,7 +1,9 @@
 @extends('web.layouts.master')
 @section('content')
     <!-- breadcrumb-section -->
-    <div class="breadcrumb-section breadcrumb-bg">
+    <div class="breadcrumb-section breadcrumb-bg"
+    style="background-image: url({{ isset($breadcrumb->image) ? asset('storage/' . $breadcrumb->image) : asset('web/imsssssg/hero-bg.jpg') }});">
+    >
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2 text-center">
@@ -33,30 +35,17 @@
                             </tr>
                             </thead>
                             <tbody>
+                                @foreach ($cartItems as $item)
                             <tr class="table-body-row">
                                 <td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
-                                <td class="product-image"><img src="{{asset('web')}}/img/products/product-img-1.jpg" alt=""></td>
-                                <td class="product-name">Strawberry</td>
-                                <td class="product-price">$85</td>
-                                <td class="product-quantity"><input type="number" placeholder="0"></td>
-                                <td class="product-total">1</td>
+                                <td class="product-image"><img src="{{asset('storage/'.$item->product->image)}}" alt=""></td>
+                                <td class="product-name">{{$item->product->name}}</td>
+                                <td class="product-price">${{$item->product->price}}</td>
+                                <td class="product-quantity"><input type="number" placeholder="0" value="{{$item->quantity}}"></td>
+                                <td class="product-total">{{$item->quantity}}</td>
                             </tr>
-                            <tr class="table-body-row">
-                                <td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
-                                <td class="product-image"><img src="{{asset('web')}}/img/products/product-img-2.jpg" alt=""></td>
-                                <td class="product-name">Berry</td>
-                                <td class="product-price">$70</td>
-                                <td class="product-quantity"><input type="number" placeholder="0"></td>
-                                <td class="product-total">1</td>
-                            </tr>
-                            <tr class="table-body-row">
-                                <td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
-                                <td class="product-image"><img src="{{asset('web')}}/img/products/product-img-3.jpg" alt=""></td>
-                                <td class="product-name">Lemon</td>
-                                <td class="product-price">$35</td>
-                                <td class="product-quantity"><input type="number" placeholder="0"></td>
-                                <td class="product-total">1</td>
-                            </tr>
+                            @endforeach
+
                             </tbody>
                         </table>
                     </div>

@@ -85,6 +85,7 @@
             </label>
             <button class="btn btn-login" id="loginButton"> {{ trns('login') }}</button>
         </form>
+        
     </main>
     <div class="welcome-container"
          style="background-image: url({{asset('lock.webp')}}); background-size: cover">

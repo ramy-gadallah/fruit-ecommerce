@@ -19,9 +19,8 @@ class SettingController extends Controller
         return $this->objService->index();
     } // index
 
-    public function update(ObjRequest $request)
+    public function update(Request $request)
     {
-        $data = $request->validated();
-        return $this->objService->update($data);
+        return $this->objService->update($request->all());
     }
 }

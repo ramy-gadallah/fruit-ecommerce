@@ -2,83 +2,59 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-
+use App\Http\Requests\DealRequest;
 use App\Models\Deal;
+use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Services\admin\DealService as ObjService;
+
 
 class DealController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function __construct(protected ObjService $Objservice)
     {
-        //
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    public function index()
+    {
+        return $this->Objservice->index();
+    }
+
+
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+    public function store(DealRequest $request)
     {
-        //
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Deal  $deal
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Deal $deal)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Deal  $deal
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Deal $deal)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Deal  $deal
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Deal $deal)
+
+    public function update(DealRequest $request)
     {
-        //
+
+        return $this->Objservice->update($request->all());
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Deal  $deal
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function destroy(Deal $deal)
     {
         //

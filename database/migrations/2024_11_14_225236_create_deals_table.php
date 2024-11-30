@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('image');
             $table->integer('discount');
             $table->foreignId('product_id')->references('id')->on('products')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->timestamp('counter');
+            $table->date('counter');
             $table->timestamps();
         });
     }

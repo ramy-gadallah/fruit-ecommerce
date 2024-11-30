@@ -18,5 +18,8 @@
 <!-- end footer -->
 
 @include('web.layouts.js')
+@yield('script')
+@toastr_js
+@toastr_render
 </body>
 </html>

@@ -93,6 +93,11 @@ class UnitService extends BaseService
 
     public function destroy($id)
     {
+        $item=$this->getById($id);
+
+        if($item->image){
+            Storage::disk('public')->delete($item->image);
+        }
 
         $this->delete($id);
         return response()->json(['status' => 200]);

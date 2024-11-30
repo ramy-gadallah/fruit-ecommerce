@@ -13,6 +13,5 @@ class AboutController extends Controller
     }
     public function index(){
         return $this->objService->index();
-        return view('web.cart.index');
     }
 }

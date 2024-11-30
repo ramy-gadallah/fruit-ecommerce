@@ -30,10 +30,7 @@ class SliderService extends BaseService
     }
 
 
-    public function edit($ObjModel)
-    {
-        return view($this->folder . '/parts/edit');
-    }
+
 
     public function update($data)
     {

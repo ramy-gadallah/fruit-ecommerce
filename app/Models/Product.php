@@ -25,4 +25,9 @@ class Product extends Model
     {
         return $this->hasOne(Deal::class);
     }
+
+   public function cart()
+    {
+        return $this->hasOne(Cart::class);
+    }
 }
